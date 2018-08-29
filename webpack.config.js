@@ -1,9 +1,9 @@
 /**
  * Created by Administrator on 2018/4/12.
  */
-const path=require('path')
-const webpack=require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path=require('path');
+const webpack=require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports={
     entry:{
         app:'./main.js'
@@ -20,6 +20,19 @@ module.exports={
                     loader:'babel-loader'
                 },
                 exclude:/node_modules/
+            },
+            {
+                test:/\.css$/,
+                use:[
+                    {
+                        loader: "style-loader",
+                        options: {
+                            sourceMap:true
+                        }
+                    },{
+                    loader:"css-loader"
+                    }
+                ]
             }
         ]
     },
